@@ -7,12 +7,11 @@ export default function Providers({children}: {children: React.ReactNode}) {
     <PrivyProvider
       appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string}
       config={{
-        // Customize Privy's appearance in your app
         appearance: {
           theme: 'dark',
           accentColor: '#676FFF',
         },
-        // Create embedded wallets for users who don't have a wallet
+        loginMethods: ['email', 'wallet', 'google', 'github', 'discord'],
         embeddedWallets: {
           createOnLogin: 'users-without-wallets',
         },
